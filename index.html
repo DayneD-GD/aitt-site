@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All In This Together (AITT)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Load saved theme
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="bg-gray-100 dark:bg-gray-800 dark:text-white py-6 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">All In This Together (AITT)</h1>
+      <nav class="space-x-4">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#resources" class="hover:underline">Resources</a>
+        <a href="#community" class="hover:underline">Community</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <button id="theme-toggle" class="ml-4 px-3 py-1 bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600 text-sm">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 bg-gray-50 dark:bg-gray-800">
+    <h2 class="text-4xl font-bold mb-4">You're Not Alone</h2>
+    <p class="text-xl max-w-2xl mx-auto text-gray-700 dark:text-gray-300">AITT is a safe space dedicated to supporting mental health, sharing stories, and connecting people with the help they need.</p>
+    <a href="#resources" class="mt-6 inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">Find Support</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold mb-4">Our Mission</h3>
+      <p class="text-lg text-gray-700 dark:text-gray-300">We aim to break the stigma surrounding mental health by offering resources, community, and connection for everyone navigating tough times. Whether you're seeking help or supporting someone, AITT is here for you.</p>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-8">Mental Health Resources</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+          <h4 class="font-semibold text-xl mb-2">Emergency Contacts</h4>
+          <p>If you're in crisis, call 988 or your local emergency services.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+          <h4 class="font-semibold text-xl mb-2">Therapy & Counseling</h4>
+          <p>Find local therapists or online services like BetterHelp, Talkspace, or Mind.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+          <h4 class="font-semibold text-xl mb-2">Self-Help Tools</h4>
+          <p>Explore meditation apps, journaling prompts, and mental health articles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community" class="py-16 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold mb-6">Join Our Community</h3>
+      <p class="text-lg mb-4 text-gray-700 dark:text-gray-300">Share your story, connect with others, and find strength in shared experiences.</p>
+      <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700">Join the Forum</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold mb-6">Need Help?</h3>
+      <p class="mb-4 text-gray-700 dark:text-gray-300">Reach out to us directly. Weâre here to listen and connect you with support.</p>
+      <form class="space-y-4 max-w-xl mx-auto">
+        <input type="text" placeholder="Your Name" class="w-full p-3 bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg" required>
+        <input type="email" placeholder="Your Email" class="w-full p-3 bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg" required>
+        <textarea placeholder="Your Message" class="w-full p-3 bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg" rows="4" required></textarea>
+        <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 dark:bg-gray-900 dark:text-white py-4 text-center">
+    <p>&copy; 2025 All In This Together. All rights reserved.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', () => {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
